@@ -6,6 +6,7 @@ if($_POST) {
     $email_title = "";
     $concerned_department = "";
     $visitor_message = "";
+    $recipient = "marcosstevens2012@gmail.com";
      
     if(isset($_POST['visitor_name'])) {
       $visitor_name = filter_var($_POST['visitor_name']);
