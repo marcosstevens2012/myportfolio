@@ -320,42 +320,54 @@ if (contactForm) {
     try {
       // Get form data
       const formData = new FormData(contactForm);
+
+      // Basic validation
       const name = formData.get("name");
       const email = formData.get("email");
       const message = formData.get("message");
 
-      // Basic validation
       if (!name || !email || !message) {
         throw new Error("Todos los campos son requeridos");
       }
 
-      console.log("Form data prepared:", { name, email, message }); // Debug log
+      // Add Formspree specific fields
+      formData.append("_subject", `Nuevo mensaje desde Portfolio - ${name}`);
+      formData.append("_template", "table");
+      formData.append("_captcha", "false");
 
-      // Try with Web3Forms (alternative service)
-      const web3FormsData = new FormData();
-      web3FormsData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // Necesitarás obtener una clave
-      web3FormsData.append("name", name);
-      web3FormsData.append("email", email);
-      web3FormsData.append("message", message);
-      web3FormsData.append("subject", `Nuevo mensaje desde Portfolio - ${name}`);
+      console.log("Form data prepared"); // Debug log
 
-      // For now, we'll simulate success since we need to configure the service first
-      console.log("Simulating form submission success"); // Debug log
+      // Send to Formspree
+      const response = await fetch("https://formspree.io/f/xanbodpy", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
-      // Show success message (simulated)
-      if (formMessage) {
-        formMessage.style.display = "block";
-        formMessage.className = "form-message success";
-        formMessage.textContent = `¡Gracias por tu mensaje, ${name}! Te responderé pronto.`;
-      }
-      contactForm.reset();
+      console.log("Response status:", response.status); // Debug log
 
-      // Hide success message after 5 seconds
-      setTimeout(() => {
+      if (response.ok) {
+        // Show success message
         if (formMessage) {
-          formMessage.style.display = "none";
+          formMessage.style.display = "block";
+          formMessage.className = "form-message success";
+          formMessage.textContent = `¡Gracias por tu mensaje, ${name}! Te responderé pronto.`;
         }
-      }, 5000);
+        contactForm.reset();
+
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          if (formMessage) {
+            formMessage.style.display = "none";
+          }
+        }, 5000);
+      } else {
+        const data = await response.json();
+        console.error("Formspree error:", data);
+        throw new Error(data.error || "Error al enviar el mensaje");
+      }
     } catch (error) {
       console.error("Error:", error);
       if (formMessage) {
