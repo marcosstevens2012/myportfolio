@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marcosstevens.dev/sitemap.xml
+
+# Block access to sensitive files
+Disallow: /assets/js/
+Disallow: /email.php
+Disallow: *.pdf$

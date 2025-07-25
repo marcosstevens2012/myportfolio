@@ -85,11 +85,6 @@
     <title>Marcos Stevens | Desarrollador Full Stack | React, Node.js, PHP & Laravel</title>
   </head>
   <body>
-    <!-- Theme toggle button -->
-    <div class="theme-toggle" id="theme-toggle">
-      <i class="bx bx-moon" id="theme-icon"></i>
-    </div>
-
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list grid">
         <li class="nav__item">
@@ -392,7 +387,7 @@
           <div class="contact__content">
             <h3 class="contact__title">¿Listo para empezar tu proyecto?</h3>
 
-            <form method="post" action="email.php" class="contact__form">
+            <form class="contact__form" id="contact-form">
               <div class="contact__form-div">
                 <label class="contact__form-tag">Nombre completo</label>
                 <input type="text" name="name" class="contact__form-input" placeholder="Tu nombre completo" required />
@@ -408,10 +403,13 @@
                 <textarea name="message" cols="30" rows="10" placeholder="Cuéntame sobre tu proyecto" class="contact__form-input" required></textarea>
               </div>
 
-              <button type="submit" class="button">
-                Enviar mensaje
+              <button type="submit" class="button" id="submit-btn">
+                <span class="button-text">Enviar mensaje</span>
+                <span class="button-loading" style="display: none">Enviando...</span>
                 <i class="bx bx-right-arrow-alt button__icon"></i>
               </button>
+
+              <div id="form-message" class="form-message" style="display: none"></div>
             </form>
           </div>
         </div>
