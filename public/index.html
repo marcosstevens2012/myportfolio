@@ -1,24 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Marcos Stevens - Desarrollador de Software Full Stack especializado en React, Node.js, PHP y Laravel. Co-fundador de RHINO. Transformo ideas en soluciones tecnológicas innovadoras." />
+    <meta name="keywords" content="Marcos Stevens, desarrollador web, programador, React, Node.js, PHP, Laravel, JavaScript, frontend, backend, full stack, Argentina, RHINO, portfolio" />
+    <meta name="author" content="Marcos Stevens" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://marcosstevens.dev/" />
+    <meta property="og:title" content="Marcos Stevens - Desarrollador de Software Full Stack" />
+    <meta property="og:description" content="Co-fundador de RHINO | Especialista en React, Node.js, PHP y Laravel | Transformo ideas en soluciones tecnológicas innovadoras" />
+    <meta property="og:image" content="https://marcosstevens.dev/assets/img/preview.png" />
+    <meta property="og:image:alt" content="Marcos Stevens Portfolio Preview" />
+    <meta property="og:site_name" content="Marcos Stevens Portfolio" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://marcosstevens.dev/" />
+    <meta property="twitter:title" content="Marcos Stevens - Desarrollador de Software Full Stack" />
+    <meta property="twitter:description" content="Co-fundador de RHINO | Especialista en React, Node.js, PHP y Laravel | Transformo ideas en soluciones tecnológicas innovadoras" />
+    <meta property="twitter:image" content="https://marcosstevens.dev/assets/img/preview.png" />
+    <meta property="twitter:creator" content="@marcosls_7" />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://marcosstevens.dev/" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
+
     <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png" />
 
     <!--=============== BOXICONS ===============-->
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="" />
-
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <title>Responsive portfolio website Stevens Marcos</title>
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcos Stevens",
+        "jobTitle": "Desarrollador de Software Full Stack",
+        "description": "Co-fundador de RHINO, especializado en desarrollo web con React, Node.js, PHP y Laravel",
+        "url": "https://marcosstevens.dev",
+        "image": "https://marcosstevens.dev/assets/img/perfil2.png",
+        "sameAs": ["https://linkedin.com/in/marcosstevens", "https://github.com/marcosstevens2012", "https://twitter.com/marcosls_7"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AR"
+        },
+        "knowsAbout": ["JavaScript", "React", "Node.js", "PHP", "Laravel", "MySQL", "Firebase", "HTML5", "CSS3", "Desarrollo Web", "Programación", "Gestión de Proyectos"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "RHINO",
+          "url": "https://rhinox.io"
+        }
+      }
+    </script>
+
+    <title>Marcos Stevens | Desarrollador Full Stack | React, Node.js, PHP & Laravel</title>
   </head>
   <body>
+    <!-- Theme toggle button -->
+    <div class="theme-toggle" id="theme-toggle">
+      <i class="bx bx-moon" id="theme-icon"></i>
+    </div>
+
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list grid">
         <li class="nav__item">
@@ -52,7 +123,9 @@
         <div class="home__container container grid">
           <div class="home__data">
             <span class="home__greeting">Hola, soy</span>
-            <h1 class="home__name">Marcos Stevens</h1>
+            <h1 class="home__name">
+              <span class="typing-text" data-text="Marcos Stevens">Marcos Stevens</span>
+            </h1>
             <h2 class="home__title">Desarrollador de Software</h2>
             <p class="home__description">Co-founder @ <a href="https://rhinox.io" target="_blank" class="home__link">RHINO</a> | Transformo ideas en soluciones tecnológicas</p>
             <div class="home__buttons">
@@ -61,7 +134,7 @@
             </div>
           </div>
 
-          <div class="home__handle">
+          <div class="home__handle parallax-element" data-speed="0.3">
             <img src="assets/img/perfil2.png" alt="" class="home__img" />
           </div>
 
@@ -90,26 +163,26 @@
         <h2 class="section__title">Sobre mí</h2>
 
         <div class="about__container container grid">
-          <img src="assets/img/escritorio.jpg" alt="" class="about__img" />
+          <img src="assets/img/escritorio.jpg" alt="" class="about__img parallax-element" data-speed="0.2" />
 
           <div class="about__data">
             <div class="about__info">
               <div class="about__box">
                 <i class="bx bx-award about__icon"></i>
                 <h3 class="about__title">Experiencia</h3>
-                <span class="about__subtitle">5+ años desarrollando</span>
+                <span class="about__subtitle"><span class="counter" data-target="5">0</span>+ años desarrollando</span>
               </div>
 
               <div class="about__box">
                 <i class="bx bx-briefcase-alt about__icon"></i>
                 <h3 class="about__title">Proyectos</h3>
-                <span class="about__subtitle">20+ completados</span>
+                <span class="about__subtitle"><span class="counter" data-target="20">0</span>+ completados</span>
               </div>
 
               <div class="about__box">
                 <i class="bx bx-support about__icon"></i>
-                <h3 class="about__title">Soporte</h3>
-                <span class="about__subtitle">24/7 disponible</span>
+                <h3 class="about__title">Clientes</h3>
+                <span class="about__subtitle"><span class="counter" data-target="15">0</span>+ satisfechos</span>
               </div>
             </div>
 

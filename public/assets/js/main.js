@@ -46,6 +46,146 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
+/*=============== ANIMATED COUNTER ===============*/
+function animateCounter() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const increment = target / speed;
+        let current = 0;
+
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                counter.innerText = Math.ceil(current);
+                setTimeout(updateCounter, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+// Intersection Observer for counter animation
+const observerOptions = {
+    threshold: 0.7
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter();
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+const aboutSection = document.querySelector('#about');
+if (aboutSection) {
+    observer.observe(aboutSection);
+}
+
+/*=============== TYPING EFFECT ===============*/
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    element.style.borderRight = '2px solid var(--first-color)';
+    
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        } else {
+            // Keep cursor blinking after typing is complete
+            element.style.animation = 'blink-caret 0.75s step-end infinite';
+        }
+    }
+    typing();
+}
+
+// Initialize typing effects
+document.addEventListener('DOMContentLoaded', () => {
+    const typingText = document.querySelector('.typing-text');
+    
+    if (typingText) {
+        const fullText = typingText.getAttribute('data-text');
+        setTimeout(() => {
+            typeWriter(typingText, fullText, 120);
+        }, 500);
+    }
+});
+
+/*=============== THEME TOGGLE ===============*/
+const themeButton = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+
+// Get theme from localStorage
+const getCurrentTheme = () => body.classList.contains('dark-theme') ? 'dark' : 'light';
+const getCurrentIcon = () => themeIcon.classList.contains('bx-sun') ? 'bx-moon' : 'bx-sun';
+
+// Load theme from localStorage
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+if (selectedTheme) {
+    body.classList[selectedTheme === 'dark' ? 'add' : 'remove']('dark-theme');
+    themeIcon.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove']('bx-moon');
+    themeIcon.classList[selectedIcon === 'bx-sun' ? 'add' : 'remove']('bx-sun');
+}
+
+// Theme toggle functionality
+themeButton.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    themeIcon.classList.toggle('bx-moon');
+    themeIcon.classList.toggle('bx-sun');
+    
+    localStorage.setItem('selected-theme', getCurrentTheme());
+    localStorage.setItem('selected-icon', getCurrentIcon());
+});
+
+/*=============== PARALLAX EFFECT ===============*/
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-element');
+    
+    parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
+    });
+});
+
+/*=============== CUSTOM CURSOR ===============*/
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Add hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .skills__data, .about__box');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+});
+
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 let mixerPortfolio = mixitup('.work__container', {
     selectors: {

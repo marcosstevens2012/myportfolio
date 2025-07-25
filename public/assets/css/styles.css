@@ -362,6 +362,36 @@ img {
   color: var(--title-color);
 }
 
+.typing-text {
+  border-right: 2px solid var(--first-color);
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: auto;
+  color: var(--title-color) !important;
+  font-weight: inherit;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Ensure text visibility in both themes */
+.light-theme .typing-text {
+  color: #000000 !important;
+}
+
+.dark-theme .typing-text {
+  color: #ffffff !important;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--first-color);
+  }
+}
+
 .home__title {
   font-size: var(--h1-font-size);
   color: var(--title-color);
@@ -397,6 +427,11 @@ img {
   flex-wrap: wrap;
 }
 
+/*=============== PARALLAX EFFECTS ===============*/
+.parallax-element {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .home__handle {
   order: 1;
   justify-self: center;
@@ -408,8 +443,8 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
   position: relative;
+  transition: transform 0.6s ease;
 }
 
 @keyframes rotate {
@@ -472,7 +507,6 @@ img {
   align-items: center;
   gap: 0.5rem;
   animation: bounce 2s infinite;
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
 }
 
 @keyframes bounce {
@@ -562,10 +596,7 @@ img {
 .about__box:hover {
   transform: translateY(-10px) scale(1.02);
   background: rgba(255, 255, 255, 0.15);
-  box-shadow:
-    0 20px 60px rgba(99, 102, 241, 0.2),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .about__icon {
@@ -573,12 +604,6 @@ img {
   color: var(--first-color);
   margin-bottom: 1rem;
   transition: var(--transition);
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-}
-
-.about__box:hover .about__icon {
-  transform: scale(1.1);
-  text-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
 }
 
 .about__title {
@@ -590,6 +615,11 @@ img {
 .about__subtitle {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
+}
+
+.counter {
+  font-weight: var(--font-bold);
+  color: var(--first-color);
 }
 
 .about__description {
@@ -605,10 +635,28 @@ img {
 }
 
 /*=============== SKILLS ===============*/
+.skills {
+  background: linear-gradient(135deg, var(--body-color) 0%, var(--section-bg) 100%);
+  position: relative;
+}
+
+.skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
 .skills__container {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
   padding: 2rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 .skills__content {
@@ -620,8 +668,9 @@ img {
 }
 
 .skills__content:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  border-color: var(--first-color);
 }
 
 .skills__title {
@@ -666,6 +715,9 @@ img {
   transition: var(--transition);
   border: 1px solid transparent;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .skills__data:hover {
@@ -694,6 +746,33 @@ img {
 
 .skills__data:hover .skills__name {
   color: #fff;
+}
+
+/* Animación staggered para skills */
+.skills__data:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.skills__data:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.skills__data:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.skills__data:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.skills__data:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.skills__data:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*=============== CONTACT ===============*/
@@ -742,7 +821,6 @@ img {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
   transition: var(--transition-slow);
 }
 
@@ -753,10 +831,7 @@ img {
 .contact__card:hover {
   transform: translateY(-10px) scale(1.02);
   background: rgba(255, 255, 255, 0.15);
-  box-shadow:
-    0 20px 60px rgba(99, 102, 241, 0.2),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 .contact__card-icon {
@@ -764,7 +839,6 @@ img {
   color: var(--first-color);
   margin-bottom: 1rem;
   transition: var(--transition);
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
 }
 
 .contact__card:hover .contact__card-icon {
@@ -1047,6 +1121,12 @@ img {
 
   .skills__container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skills__data {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -1221,6 +1301,32 @@ img {
   display: block;
 }
 
+/*=============== THEME TOGGLE ===============*/
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: var(--z-fixed);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
 /*=============== THEME ===============*/
 .change-theme {
   font-size: 1.25rem;
@@ -1230,6 +1336,20 @@ img {
 
 .change-theme:hover {
   color: var(--first-color);
+}
+
+/*========== Dark Theme ==========*/
+body.dark-theme {
+  --title-color: #ffffff;
+  --text-color: #e0e0e0;
+  --text-color-light: #a0a0a0;
+  --text-color-lighter: #666666;
+  --body-color: #1a1a1a;
+  --container-color: #2a2a2a;
+  --border-color: #404040;
+  --section-bg: #262626;
+  --first-color: #ffffff;
+  --first-color-alt: #e0e0e0;
 }
 
 /*========== Light Theme ==========*/
@@ -2251,4 +2371,22 @@ contact__button-icon {
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+/*=============== CUSTOM CURSOR ===============*/
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: var(--first-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
 }
