@@ -19,16 +19,46 @@
     <title>Responsive portfolio website Stevens Marcos</title>
   </head>
   <body>
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list grid">
+        <li class="nav__item">
+          <a href="#home" class="nav__link active-link">
+            <i class="bx bx-home-alt"></i>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#about" class="nav__link">
+            <i class="bx bx-user"></i>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#skills" class="nav__link">
+            <i class="bx bx-code-alt"></i>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#contact" class="nav__link">
+            <i class="bx bx-message-square-detail"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--=============== HEADER ===============-->
+
     <!--=============== MAIN ===============-->
     <main class="main">
       <!--=============== HOME ===============-->
       <section class="home section" id="home">
         <div class="home__container container grid">
-          <div class="div home__data">
-            <span class="home__greetin">Hello, I'am</span>
-            <h1 class="home__name">Stevens Marcos</h1>
-            <h3 class="home__education">Web Developer - Technical Functional Analyst - CTO - Project Manager</h3>
-            <h3 class="home__experience">Co-founder of <a href="https://rhinox.io" target="_blank">Rhino</a></h3>
+          <div class="home__data">
+            <span class="home__greeting">Hola, soy</span>
+            <h1 class="home__name">Marcos Stevens</h1>
+            <h2 class="home__title">Desarrollador de Software</h2>
+            <p class="home__description">Co-founder @ <a href="https://rhinox.io" target="_blank" class="home__link">RHINO</a> | Transformo ideas en soluciones tecnológicas</p>
+            <div class="home__buttons">
+              <a href="#contact" class="button">Trabajemos juntos</a>
+              <a href="assets/pdf/CV-MarcosStevens.pdf" target="_blank" class="button button--ghost">Descargar CV</a>
+            </div>
           </div>
 
           <div class="home__handle">
@@ -54,60 +84,261 @@
         </div>
       </section>
 
+      <!--=============== ABOUT ===============-->
+      <section class="about section" id="about">
+        <span class="section__subtitle">Mi historia</span>
+        <h2 class="section__title">Sobre mí</h2>
+
+        <div class="about__container container grid">
+          <img src="assets/img/escritorio.jpg" alt="" class="about__img" />
+
+          <div class="about__data">
+            <div class="about__info">
+              <div class="about__box">
+                <i class="bx bx-award about__icon"></i>
+                <h3 class="about__title">Experiencia</h3>
+                <span class="about__subtitle">5+ años desarrollando</span>
+              </div>
+
+              <div class="about__box">
+                <i class="bx bx-briefcase-alt about__icon"></i>
+                <h3 class="about__title">Proyectos</h3>
+                <span class="about__subtitle">20+ completados</span>
+              </div>
+
+              <div class="about__box">
+                <i class="bx bx-support about__icon"></i>
+                <h3 class="about__title">Soporte</h3>
+                <span class="about__subtitle">24/7 disponible</span>
+              </div>
+            </div>
+
+            <p class="about__description">
+              Desarrollador de software apasionado por crear soluciones tecnológicas innovadoras. Co-fundador de RHINO, donde transformamos ideas en productos digitales que marcan la diferencia.
+              <br /><br />
+              Mi enfoque se centra en el desarrollo full-stack, análisis y diseño de sistemas, gestión de proyectos y liderazgo de equipos de desarrollo. Me caracterizo por una mentalidad analítica,
+              curiosidad intelectual y pensamiento crítico orientado a la originalidad y eficiencia.
+              <br /><br />
+              Aprendizaje continuo y autodidacta en tecnología, educación financiera, gestión de proyectos e innovación.
+            </p>
+
+            <a href="#contact" class="button">Contáctame</a>
+          </div>
+        </div>
+      </section>
+
+      <!--=============== SKILLS ===============-->
+      <section class="skills section" id="skills">
+        <span class="section__subtitle">Mis habilidades</span>
+        <h2 class="section__title">Mi experiencia</h2>
+
+        <div class="skills__container container grid">
+          <div class="skills__content">
+            <h3 class="skills__title">Desarrollo Frontend</h3>
+            <div class="skills__box">
+              <div class="skills__group">
+                <div class="skills__data">
+                  <i class="bx bxl-react"></i>
+                  <h3 class="skills__name">React</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-code-block"></i>
+                  <h3 class="skills__name">Next.js</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-javascript"></i>
+                  <h3 class="skills__name">JavaScript</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-html5"></i>
+                  <h3 class="skills__name">HTML5</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-css3"></i>
+                  <h3 class="skills__name">CSS3</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-paint"></i>
+                  <h3 class="skills__name">Tailwind CSS</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills__content">
+            <h3 class="skills__title">Desarrollo Backend</h3>
+            <div class="skills__box">
+              <div class="skills__group">
+                <div class="skills__data">
+                  <i class="bx bxl-nodejs"></i>
+                  <h3 class="skills__name">Node.js</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-php"></i>
+                  <h3 class="skills__name">PHP</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-code-curly"></i>
+                  <h3 class="skills__name">Laravel</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-data"></i>
+                  <h3 class="skills__name">MySQL</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-firebase"></i>
+                  <h3 class="skills__name">Firebase</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-server"></i>
+                  <h3 class="skills__name">APIs REST</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills__content">
+            <h3 class="skills__title">Frameworks & Tools</h3>
+            <div class="skills__box">
+              <div class="skills__group">
+                <div class="skills__data">
+                  <i class="bx bxl-vuejs"></i>
+                  <h3 class="skills__name">Vue.js</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-bootstrap"></i>
+                  <h3 class="skills__name">Bootstrap</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bxl-mongodb"></i>
+                  <h3 class="skills__name">NoSQL</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-cloud"></i>
+                  <h3 class="skills__name">Cloud Computing</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-sitemap"></i>
+                  <h3 class="skills__name">Diseño de Sistemas</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-shopping-bag"></i>
+                  <h3 class="skills__name">E-commerce</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills__content">
+            <h3 class="skills__title">Gestión & Liderazgo</h3>
+            <div class="skills__box">
+              <div class="skills__group">
+                <div class="skills__data">
+                  <i class="bx bx-group"></i>
+                  <h3 class="skills__name">Gestión de Equipos</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-task"></i>
+                  <h3 class="skills__name">Gestión de Proyectos</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-brain"></i>
+                  <h3 class="skills__name">Pensamiento Crítico</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-bulb"></i>
+                  <h3 class="skills__name">Innovación</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-analyse"></i>
+                  <h3 class="skills__name">Análisis de Requisitos</h3>
+                </div>
+
+                <div class="skills__data">
+                  <i class="bx bx-line-chart"></i>
+                  <h3 class="skills__name">Mentalidad Analítica</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!--=============== CONTACT ===============-->
       <section class="contact section" id="contact">
-        <span class="section__subtitle">Get intouch</span>
-        <h2 class="section__title">Contact me</h2>
+        <span class="section__subtitle">Trabajemos juntos</span>
+        <h2 class="section__title">Contáctame</h2>
 
         <div class="contact__container container grid">
           <div class="contact__content">
-            <h3 class="contact__title">Talk to me</h3>
+            <h3 class="contact__title">Hablemos</h3>
 
             <div class="contact__info">
               <div class="contact__card">
                 <i class="bx bx-mail-send contact__card-icon"></i>
                 <h3 class="contact__card-title">Email</h3>
                 <span class="contact__card-data">marcosstevens.web@gmail.com</span>
-
-                <a href="mailto:marcosstevens2012@gmail.com" target="_blank" class="contact__button"> Write me <i class="bx bx-right-arrow-alt contact_button-icon"></i> </a>
+                <a href="mailto:marcosstevens.web@gmail.com" target="_blank" class="contact__button"> Escribir <i class="bx bx-right-arrow-alt contact__button-icon"></i> </a>
               </div>
 
               <div class="contact__card">
                 <i class="bx bxl-whatsapp contact__card-icon"></i>
-                <h3 class="contact__card-title">Whatsapp</h3>
+                <h3 class="contact__card-title">WhatsApp</h3>
                 <span class="contact__card-data">+54 3743 562805</span>
-
-                <a href="https://wa.me/5493743562805" target="_blank" class="contact__button"> Write me <i class="bx bx-right-arrow-alt contact_button-icon"></i> </a>
+                <a href="https://wa.me/5493743562805" target="_blank" class="contact__button"> Escribir <i class="bx bx-right-arrow-alt contact__button-icon"></i> </a>
               </div>
 
               <div class="contact__card">
                 <i class="bx bxl-linkedin contact__card-icon"></i>
-                <h3 class="contact__card-title">linkedin</h3>
+                <h3 class="contact__card-title">LinkedIn</h3>
                 <span class="contact__card-data">marcosstevens</span>
-
-                <a href="https://www.linkedin.com/in/marcosstevens/" target="_blank" class="contact__button"> Write me <i class="bx bx-right-arrow-alt contact_button-icon"></i> </a>
+                <a href="https://www.linkedin.com/in/marcosstevens/" target="_blank" class="contact__button"> Conectar <i class="bx bx-right-arrow-alt contact__button-icon"></i> </a>
               </div>
             </div>
           </div>
 
           <div class="contact__content">
-            <h3 class="contact__title">Ready for us to start your project?</h3>
+            <h3 class="contact__title">¿Listo para empezar tu proyecto?</h3>
 
             <form method="post" action="email.php" class="contact__form">
               <div class="contact__form-div">
-                <label for="" class="contact__form-tag">Names</label>
-                <input type="text" class="contact__form-input" id="name" placeholder="Insert your name" />
-              </div>
-              <div class="contact__form-div">
-                <label for="" class="contact__form-tag">Mail</label>
-                <input type="mail" placeholder="Insert your email" id="email" class="contact__form-input" />
-              </div>
-              <div class="contact__form-div contact__form-area">
-                <label for="" class="contact__form-tag">Project</label>
-                <textarea name="" id="message" cols="30" rows="10" placeholder="Write your project" class="contact__form-input"></textarea>
+                <label class="contact__form-tag">Nombre completo</label>
+                <input type="text" name="name" class="contact__form-input" placeholder="Tu nombre completo" required />
               </div>
 
-              <button class="button">Send</button>
+              <div class="contact__form-div">
+                <label class="contact__form-tag">Email</label>
+                <input type="email" name="email" class="contact__form-input" placeholder="Tu email" required />
+              </div>
+
+              <div class="contact__form-div contact__form-area">
+                <label class="contact__form-tag">Proyecto</label>
+                <textarea name="message" cols="30" rows="10" placeholder="Cuéntame sobre tu proyecto" class="contact__form-input" required></textarea>
+              </div>
+
+              <button type="submit" class="button">
+                Enviar mensaje
+                <i class="bx bx-right-arrow-alt button__icon"></i>
+              </button>
             </form>
           </div>
         </div>
@@ -118,32 +349,33 @@
     <footer class="footer">
       <div class="footer__container container">
         <h1 class="footer__title">Marcos Stevens</h1>
+        <p class="footer__description">Desarrollador de Software especializado en crear soluciones tecnológicas innovadoras.</p>
 
         <ul class="footer__list">
           <li>
-            <a href="#about" class="footer__link">About</a>
+            <a href="#about" class="footer__link">Sobre mí</a>
           </li>
           <li>
-            <a href="#work" class="footer__link">Project</a>
-          </li>
-          <li>
-            <a href="#testimonial" class="footer__link">Testimonial</a>
+            <a href="#contact" class="footer__link">Contacto</a>
           </li>
         </ul>
 
         <ul class="footer__social">
-          <a href="https://www.facebook.com/marcos.stevens.web" target="_blank" class="footer__social-link">
-            <i class="bx bxl-facebook"></i>
+          <a href="https://www.linkedin.com/in/marcosstevens/" target="_blank" class="footer__social-link">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/marcosstevens2012" target="_blank" class="footer__social-link">
+            <i class="bx bxl-github"></i>
           </a>
           <a href="https://twitter.com/marcosls_7" target="_blank" class="footer__social-link">
             <i class="bx bxl-twitter"></i>
           </a>
-          <a href="https://www.linkedin.com/in/marcosstevens/" target="_blank" class="footer__social-link">
-            <i class="bx bxl-linkedin"></i>
+          <a href="https://wa.me/5493743562805" target="_blank" class="footer__social-link">
+            <i class="bx bxl-whatsapp"></i>
           </a>
         </ul>
 
-        <span class="footer__copy"> &#169; Marcos Stevens. All rigths reserved </span>
+        <span class="footer__copy">© 2025 Marcos Stevens. Todos los derechos reservados.</span>
       </div>
     </footer>
 

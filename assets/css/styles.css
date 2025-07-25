@@ -231,7 +231,6 @@ body.light-theme {
 /*=============== HEADER & NAV===============*/
 
 .header {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -289,11 +288,6 @@ body.light-theme {
   color: var(--title-color);
 }
 
-/* Change background header */
-.scroll-header {
-  box-shadow: 0 4px 4px hsla(0, 0%, 4%, 0.3);
-}
-
 /*=============== HOME ===============*/
 .home__container {
   position: relative;
@@ -336,7 +330,6 @@ body.light-theme {
   width: 190px;
   height: 293px;
   background: linear-gradient(180deg, hsla(var(--first-hue), var(--sat), var(--lig), 1), hsla(var(--first-hue), var(--sat), var(--lig), 0.2));
-  border-radius: 10rem 10rem 1rem 1rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
