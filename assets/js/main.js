@@ -33,9 +33,21 @@ function scrollActive() {
       sectionId = current.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link");
+      // Update mobile menu
+      const mobileLink = document.querySelector(".nav__menu a[href*=" + sectionId + "]");
+      if (mobileLink) mobileLink.classList.add("active-link");
+
+      // Update desktop menu
+      const desktopLink = document.querySelector("#nav-menu-desktop a[href*=" + sectionId + "]");
+      if (desktopLink) desktopLink.classList.add("active-link");
     } else {
-      document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link");
+      // Remove from mobile menu
+      const mobileLink = document.querySelector(".nav__menu a[href*=" + sectionId + "]");
+      if (mobileLink) mobileLink.classList.remove("active-link");
+
+      // Remove from desktop menu
+      const desktopLink = document.querySelector("#nav-menu-desktop a[href*=" + sectionId + "]");
+      if (desktopLink) desktopLink.classList.remove("active-link");
     }
   });
 }
