@@ -1,10 +1,34 @@
+# robots.txt para Marcos Stevens Portfolio
+
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://marcosstevens.dev/sitemap.xml
-
-# Block access to sensitive files
-Disallow: /assets/js/
+Allow: /assets/css/
+Allow: /assets/img/
+Allow: /assets/pdf/
+Disallow: /functions/
+Disallow: /node_modules/
+Disallow: /.git/
 Disallow: /email.php
-Disallow: *.pdf$
+Disallow: /database.rules.json
+Disallow: /firebase.json
+Disallow: /.firebase/
+
+# Sitemaps
+Sitemap: https://portfolio-95ed7.web.app/sitemap.xml
+
+# Crawl-delay para bots pesados
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Slurp
+Crawl-delay: 1
+
+# Permitir acceso a recursos estáticos
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+User-agent: Mediapartners-Google
+Allow: /

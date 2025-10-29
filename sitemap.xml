@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://marcosstevens.dev/</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://portfolio-95ed7.web.app/</loc>
+    <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://portfolio-95ed7.web.app/assets/img/preview.png</image:loc>
+      <image:title>Marcos Stevens - Portfolio Preview</image:title>
+      <image:caption>Desarrollador Full Stack - React, Node.js, PHP, Laravel</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio-95ed7.web.app/assets/img/perfil2.png</image:loc>
+      <image:title>Marcos Stevens - Foto de Perfil</image:title>
+      <image:caption>Desarrollador Full Stack</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://marcosstevens.dev/#about</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://portfolio-95ed7.web.app/#about</loc>
+    <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-95ed7.web.app/#skills</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-95ed7.web.app/#projects</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://marcosstevens.dev/#skills</loc>
-    <lastmod>2025-01-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://marcosstevens.dev/#contact</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://portfolio-95ed7.web.app/#contact</loc>
+    <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
