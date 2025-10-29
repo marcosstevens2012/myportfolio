@@ -85,6 +85,9 @@
     <title>Marcos Stevens | Desarrollador Full Stack | React, Node.js, PHP & Laravel</title>
   </head>
   <body>
+    <!--=============== ANIMATED BACKGROUND ===============-->
+    <canvas id="particles-canvas"></canvas>
+
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list grid">
         <li class="nav__item">
@@ -123,19 +126,29 @@
         <div class="nav__menu" id="nav-menu-desktop">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#home" class="nav__link">Inicio</a>
+              <a href="#home" class="nav__link">
+                <i class="bx bx-home-alt"></i>
+              </a>
             </li>
             <li class="nav__item">
-              <a href="#about" class="nav__link">Sobre mí</a>
+              <a href="#about" class="nav__link">
+                <i class="bx bx-user"></i>
+              </a>
             </li>
             <li class="nav__item">
-              <a href="#skills" class="nav__link">Habilidades</a>
+              <a href="#skills" class="nav__link">
+                <i class="bx bx-code-alt"></i>
+              </a>
             </li>
             <li class="nav__item">
-              <a href="#projects" class="nav__link">Proyectos</a>
+              <a href="#projects" class="nav__link">
+                <i class="bx bx-briefcase-alt-2"></i>
+              </a>
             </li>
             <li class="nav__item">
-              <a href="#contact" class="nav__link">Contacto</a>
+              <a href="#contact" class="nav__link">
+                <i class="bx bx-message-square-detail"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -150,7 +163,7 @@
           <div class="home__data">
             <span class="home__greeting">Hola, soy</span>
             <h1 class="home__name">
-              <span class="typing-text" data-text="Marcos Stevens">Marcos Stevens</span>
+              <span class="typing-text">Marcos Stevens</span>
             </h1>
             <h2 class="home__title">Desarrollador de Software</h2>
             <p class="home__description">Co-founder @ <a href="https://rhinox.io" target="_blank" class="home__link">RHINO</a> | Transformo ideas en soluciones tecnológicas</p>
@@ -163,23 +176,6 @@
           <div class="home__handle parallax-element" data-speed="0.3">
             <img src="assets/img/perfil2.png" alt="" class="home__img" />
           </div>
-
-          <div class="home__social">
-            <a href="https://www.linkedin.com/in/marcosstevens/" target="_blank" class="home__social-link">
-              <i class="bx bxl-linkedin-square"></i>
-            </a>
-            <a href="https://github.com/marcosstevens2012" target="_blank" class="home__social-link">
-              <i class="bx bxl-github"></i>
-            </a>
-            <a href="https://discord.gg/R6UEagVQ" target="_blank" class="home__social-link">
-              <i class="bx bxl-discord-alt"></i>
-            </a>
-          </div>
-
-          <a href="#about" class="home__scroll">
-            <i class="bx bx-mouse home__scroll-icon"></i>
-            <span class="home__scroll-name">Scroll down</span>
-          </a>
         </div>
       </section>
 
@@ -189,26 +185,26 @@
         <h2 class="section__title">Sobre mí</h2>
 
         <div class="about__container container grid">
-          <img src="assets/img/escritorio.jpg" alt="" class="about__img parallax-element" data-speed="0.2" />
+          <img src="assets/img/escritorio.jpg" alt="" class="about__img" data-speed="0.2" />
 
           <div class="about__data">
             <div class="about__info">
               <div class="about__box">
                 <i class="bx bx-award about__icon"></i>
                 <h3 class="about__title">Experiencia</h3>
-                <span class="about__subtitle"><span class="counter" data-target="5">7</span>+ años desarrollando</span>
+                <span class="about__subtitle"><span class="counter" data-target="7">8</span></span>
               </div>
 
               <div class="about__box">
                 <i class="bx bx-briefcase-alt about__icon"></i>
                 <h3 class="about__title">Proyectos</h3>
-                <span class="about__subtitle"><span class="counter" data-target="20">25</span>+ completados</span>
+                <span class="about__subtitle"><span class="counter" data-target="20">25</span></span>
               </div>
 
               <div class="about__box">
                 <i class="bx bx-support about__icon"></i>
                 <h3 class="about__title">Clientes</h3>
-                <span class="about__subtitle"><span class="counter" data-target="15">20</span>+ satisfechos</span>
+                <span class="about__subtitle"><span class="counter" data-target="15">20</span></span>
               </div>
             </div>
 
@@ -229,7 +225,6 @@
       <!--=============== SKILLS ===============-->
       <section class="skills section" id="skills">
         <span class="section__subtitle">Mis habilidades</span>
-        <h2 class="section__title">Mi experiencia</h2>
 
         <div class="skills__container container grid">
           <div class="skills__content">
@@ -384,7 +379,6 @@
 
       <!--=============== PROJECTS ===============-->
       <section class="projects section" id="projects">
-        <span class="section__subtitle">Portafolio</span>
         <h2 class="section__title">Proyectos</h2>
 
         <div class="projects__container container">

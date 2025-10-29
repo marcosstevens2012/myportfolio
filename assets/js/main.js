@@ -396,3 +396,259 @@ if (contactForm) {
     }
   });
 }
+
+/*=============== CUSTOM CURSOR ===============*/
+const cursor = document.createElement("div");
+cursor.className = "custom-cursor";
+document.body.appendChild(cursor);
+
+const cursorFollower = document.createElement("div");
+cursorFollower.className = "cursor-follower";
+document.body.appendChild(cursorFollower);
+
+document.addEventListener("mousemove", (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  // Ambos cursores siguen directamente al mouse sin delay
+  cursor.style.left = mouseX + "px";
+  cursor.style.top = mouseY + "px";
+
+  cursorFollower.style.left = mouseX + "px";
+  cursorFollower.style.top = mouseY + "px";
+});
+
+// Add hover effect to interactive elements
+const hoverElements = document.querySelectorAll("a, button, .button, .skills__data, .projects__card");
+hoverElements.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    cursor.classList.add("hover");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover");
+  });
+});
+
+/*=============== MAGNETIC EFFECT ===============*/
+const magneticElements = document.querySelectorAll(".button, .home__social-link, .nav__link");
+
+magneticElements.forEach((element) => {
+  element.addEventListener("mousemove", (e) => {
+    const rect = element.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    element.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+  });
+
+  element.addEventListener("mouseleave", () => {
+    element.style.transform = "translate(0, 0)";
+  });
+});
+
+/*=============== 3D TILT EFFECT ===============*/
+const tiltElements = document.querySelectorAll(".skills__data, .projects__card");
+
+tiltElements.forEach((element) => {
+  element.addEventListener("mousemove", (e) => {
+    const rect = element.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  });
+
+  element.addEventListener("mouseleave", () => {
+    element.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+  });
+});
+
+/*=============== PARALLAX EFFECT ===============*/
+document.addEventListener("mousemove", (e) => {
+  const parallaxElements = document.querySelectorAll(".parallax-element");
+
+  parallaxElements.forEach((element) => {
+    const speed = element.getAttribute("data-speed") || 0.05;
+    const x = (window.innerWidth - e.pageX * speed) / 100;
+    const y = (window.innerHeight - e.pageY * speed) / 100;
+
+    element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  });
+});
+
+/*=============== SCROLL PARALLAX ===============*/
+window.addEventListener("scroll", () => {
+  const scrolled = window.pageYOffset;
+  const parallaxElements = document.querySelectorAll(".parallax-element");
+
+  parallaxElements.forEach((element) => {
+    const speed = element.getAttribute("data-speed") || 0.5;
+    element.style.transform = `translateY(${scrolled * speed}px)`;
+  });
+});
+
+/*=============== INTERSECTION OBSERVER FOR ANIMATIONS ===============*/
+const sectionObserverOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = "running";
+    }
+  });
+}, sectionObserverOptions);
+
+// Observe all sections
+document.querySelectorAll("section").forEach((section) => {
+  sectionObserver.observe(section);
+});
+
+/*=============== SMOOTH SCROLL WITH EASING ===============*/
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+      const offsetTop = target.offsetTop - 70;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
+/*=============== PERFORMANCE OPTIMIZATION ===============*/
+// Disable cursor effects on mobile
+if (window.innerWidth < 768) {
+  cursor.style.display = "none";
+  cursorFollower.style.display = "none";
+}
+
+// Re-check on resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 768) {
+    cursor.style.display = "none";
+    cursorFollower.style.display = "none";
+  } else {
+    cursor.style.display = "block";
+    cursorFollower.style.display = "block";
+  }
+});
+
+/*=============== LOADING ANIMATION ===============*/
+window.addEventListener("load", () => {
+  document.body.style.opacity = "0";
+  setTimeout(() => {
+    document.body.style.transition = "opacity 0.5s ease";
+    document.body.style.opacity = "1";
+  }, 100);
+});
+
+/*=============== ANIMATED PARTICLES ===============*/
+const canvas = document.getElementById("particles-canvas");
+if (canvas) {
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = 80;
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 2 + 1;
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(0, 0, 0, ${0.2 * (1 - distance / 150)})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((particle) => {
+      particle.update();
+      particle.draw();
+    });
+
+    connectParticles();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  // Mouse interaction with particles
+  canvas.addEventListener("mousemove", (e) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    particles.forEach((particle) => {
+      const dx = mouseX - particle.x;
+      const dy = mouseY - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 100) {
+        particle.vx -= dx * 0.0001;
+        particle.vy -= dy * 0.0001;
+      }
+    });
+  });
+}

@@ -8,8 +8,8 @@
   /*========== Colors - Identidad de Marca (Minimalismo Inteligente) ==========*/
   --first-color: #0a0a0a;
   --first-color-alt: #1a1a1a;
-  --accent-color: #007bff;
-  --accent-hover: #0056b3;
+  --accent-color: #0a0a0a;
+  --accent-hover: #333333;
 
   --title-color: #0a0a0a;
   --text-color: #414141;
@@ -335,36 +335,34 @@ img {
 
 #nav-menu-desktop .nav__list {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 #nav-menu-desktop .nav__link {
   color: var(--text-color);
   font-weight: var(--font-medium);
-  font-size: var(--normal-font-size);
+  font-size: 1.5rem;
   transition: var(--transition);
   position: relative;
-  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-#nav-menu-desktop .nav__link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-color);
-  transition: var(--transition);
+#nav-menu-desktop .nav__link i {
+  font-size: 1.5rem;
 }
 
 #nav-menu-desktop .nav__link:hover {
   color: var(--accent-color);
+  background: rgba(0, 0, 0, 0.1);
 }
 
-#nav-menu-desktop .nav__link:hover::after {
-  width: 100%;
+#nav-menu-desktop .active-link {
+  color: var(--accent-color);
 }
 
 .nav__menu {
@@ -402,7 +400,7 @@ img {
 
 .nav__link:hover {
   color: var(--accent-color);
-  background: rgba(0, 123, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
 
@@ -410,7 +408,7 @@ img {
 .active-link {
   background: var(--accent-color);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 #nav-menu-desktop .nav__link.active-link {
@@ -537,7 +535,7 @@ img {
 }
 
 .home__link:hover {
-  text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .home__buttons {
@@ -711,7 +709,7 @@ img {
 .about__box:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
-  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .about__icon {
@@ -768,12 +766,14 @@ img {
 
 .skills__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem 0;
   position: relative;
   z-index: 1;
   align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .skills__content {
@@ -786,11 +786,10 @@ img {
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-width: 390px;
 }
 
 .skills__content:hover {
-  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   border-color: var(--accent-color);
   transform: translateY(-4px);
 }
@@ -827,7 +826,7 @@ img {
 
 .skills__group {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   justify-content: center;
   flex: 1;
@@ -838,7 +837,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   background: var(--body-color);
   border-radius: 8px;
   transition: var(--transition);
@@ -847,7 +846,7 @@ img {
 }
 
 .skills__data:hover {
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 123, 255, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
   border-color: var(--accent-color);
   transform: translateX(4px);
 }
@@ -932,12 +931,12 @@ img {
 .project__item:hover {
   border-color: var(--accent-color);
   transform: translateX(8px);
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project__item--featured {
   border-color: var(--accent-color);
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.03) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, transparent 100%);
 }
 
 .project__item--featured::before {
@@ -1010,7 +1009,7 @@ img {
 
 .contact__card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   border-color: var(--accent-color);
 }
 
@@ -1130,15 +1129,15 @@ img {
 }
 
 .form-message.success {
-  background-color: rgba(76, 175, 80, 0.1);
-  border: 1px solid rgba(76, 175, 80, 0.3);
-  color: #4caf50;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #0a0a0a;
 }
 
 .form-message.error {
-  background-color: rgba(244, 67, 54, 0.1);
-  border: 1px solid rgba(244, 67, 54, 0.3);
-  color: #f44336;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #333333;
 }
 
 .button-loading {
@@ -1245,7 +1244,7 @@ img {
 .footer__social-link:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
-  background: rgba(0, 123, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
@@ -1429,20 +1428,20 @@ img {
 
   .skills__container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .skills__content {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .skills__group {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .skills__data {
-    padding: 0.75rem;
+    padding: 1rem 1.25rem;
     justify-content: flex-start;
   }
 
@@ -2606,7 +2605,6 @@ contact__button-icon {
 /* For medium devices */
 @media screen and (min-width: 576px) {
   .nav__menu {
-    width: 328px;
     margin: 0 auto;
   }
 
@@ -2765,7 +2763,7 @@ contact__button-icon {
   }
 
   .skills__container {
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(2, 450px);
     column-gap: 3rem;
   }
 
@@ -2909,16 +2907,411 @@ contact__button-icon {
 .custom-cursor {
   width: 20px;
   height: 20px;
-  background: var(--first-color);
+  background: var(--accent-color);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform 0.1s ease;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .custom-cursor.hover {
-  transform: translate(-50%, -50%) scale(1.5);
+  transform: translate(-50%, -50%) scale(2);
+  background: var(--accent-hover);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.home__name {
+  position: relative;
+  display: inline-block;
+}
+
+/*=============== MAGNETIC EFFECT ===============*/
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*=============== 3D TILT EFFECT FOR CARDS ===============*/
+.skills__data,
+.projects__card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.skills__data:hover,
+.projects__card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.skills__data::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skills__data:hover::before {
+  opacity: 1;
+}
+
+/*=============== FLOATING ANIMATION ===============*/
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.home__img {
+  animation: float 6s ease-in-out infinite;
+}
+
+/*=============== GRADIENT BACKGROUND ANIMATION ===============*/
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.home__data,
+.home__handle,
+.home__social,
+.home__scroll {
+  position: relative;
+  z-index: 1;
+}
+
+/*=============== NEON GLOW EFFECT ===============*/
+.button:hover {
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 0, 0, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav__link.active-link {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.nav__link.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/*=============== TEXT REVEAL ANIMATION ===============*/
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.home__greeting,
+.home__name,
+.home__title,
+.home__description {
+  animation: text-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.home__greeting {
+  animation-delay: 0.1s;
+}
+
+.home__name {
+  animation-delay: 0.2s;
+}
+
+.home__title {
+  animation-delay: 0.3s;
+}
+
+.home__description {
+  animation-delay: 0.4s;
+}
+
+.home__buttons {
+  animation: text-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s backwards;
+}
+
+/*=============== SHINE EFFECT ON HOVER ===============*/
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.projects__card {
+  overflow: hidden;
+  position: relative;
+}
+
+.projects__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: none;
+  z-index: 2;
+}
+
+.projects__card:hover::before {
+  animation: shine 0.8s ease;
+}
+
+/*=============== RIPPLE EFFECT ===============*/
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.button:active::before {
+  width: 300px;
+  height: 300px;
+  transition: 0s;
+}
+
+/*=============== PARALLAX LAYERS ===============*/
+.parallax-element {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*=============== LOADING ANIMATION ===============*/
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.home {
+  animation-delay: 0s;
+}
+
+.about {
+  animation-delay: 0.1s;
+}
+
+.skills {
+  animation-delay: 0.1s;
+}
+
+.projects {
+  animation-delay: 0.1s;
+}
+
+/*=============== SMOOTH SCROLL INDICATOR ===============*/
+.home__scroll {
+  position: relative;
+}
+
+.home__scroll::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 0;
+  background: var(--accent-color);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%,
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    height: 30px;
+    opacity: 1;
+  }
+}
+
+/*=============== HOVER LIFT FOR SOCIAL ICONS ===============*/
+.home__social-link,
+.footer__social-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home__social-link:hover,
+.footer__social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/*=============== SKILLS ICON ANIMATION ===============*/
+.skills__data i {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills__data:hover i {
+  transform: rotateY(360deg) scale(1.2);
+  color: var(--accent-color);
+}
+
+/*=============== TYPEWRITER EFFECT ===============*/
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/*=============== BORDER ANIMATION ===============*/
+@keyframes border-dance {
+  0%,
+  100% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 100% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%);
+  }
+  75% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 0%, 0% 0%);
+  }
+}
+
+.skills__data::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-color);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.skills__data:hover::after {
+  opacity: 1;
+  animation: border-dance 2s linear infinite;
+}
+
+/*=============== RESPONSIVE ADJUSTMENTS ===============*/
+@media screen and (max-width: 767px) {
+  .custom-cursor,
+  .cursor-follower {
+    display: none;
+  }
+
+  .skills__data:hover,
+  .projects__card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/*=============== ANIMATED PARTICLES BACKGROUND ===============*/
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
 }
